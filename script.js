@@ -1,17 +1,18 @@
 function playRound(playerSelection, computerSelection) {
-    if 
-        ((playerSelection === 'rock' && computerSelection === 'paper'),
-        (playerSelection === 'paper' && computerSelection === 'scissors'),
-        (playerSelection === 'scissors' && computerSelection === 'rock')) {
+    if (playerSelection === computerSelection) {
+        return "Draw"
+    } else if
+        ((playerSelection !== computerSelection) &&
+        ((playerSelection === 'rock' && computerSelection === 'paper') ||
+        (playerSelection === 'paper' && computerSelection === 'scissors') ||
+        (playerSelection === 'scissors' && computerSelection === 'rock'))) {
             return 'You lose'
     } else if
-        ((playerSelection === 'rock' && computerSelection === 'scissors'),
-        (playerSelection === 'paper' && computerSelection === 'rock'),
-        (playerSelection === 'scissor' && computerSelection === 'paper')) {
-            return 'You win!'
-    } else if 
-        (playerSelection === computerSelection) {
-            return "Draw"
+        ((playerSelection !== computerSelection) &&
+        ((playerSelection === 'rock' && computerSelection === 'scissors') ||
+        (playerSelection === 'paper' && computerSelection === 'rock') ||
+        (playerSelection === 'scissors' && computerSelection === 'paper'))) {
+        return 'You win!'
     } else {
         return 'Wrong input'
     }
@@ -31,11 +32,8 @@ function getComputerChoice() {
         break;
     }
 }
-console.log(getComputerChoice());
 
-
-
-const selection = 'paper';
+const selection = 'Scissors';
 const playerSelection = selection.toLowerCase();
 console.log(playerSelection);
 const computerSelection = getComputerChoice();
