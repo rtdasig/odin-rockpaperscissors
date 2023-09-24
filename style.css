@@ -1,0 +1,28 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto Mono';
+}
+
+h1, h2 {
+    text-align: center;
+}
+
+.game-field {
+    display: flex;
+    justify-content: center;
+    gap: 500px;
+    
+}
+
+.rps {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin-left: 0;
+    gap: 1rem;
+}
+
+
