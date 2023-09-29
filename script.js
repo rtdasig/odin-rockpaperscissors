@@ -10,8 +10,10 @@ const compScoreCont = document.getElementById("compscore");
 const roundNum = document.getElementById("roundnumber");
 
 const resultCont = document.getElementById("resultCont");
-const results = document.getElementById("results");
-    
+const results = document.createElement('div');
+results.className = "results";
+resultCont.appendChild(results);
+
 const playerChoiceCont = document.getElementById('player');
 const playerChoice = document.createElement('div');
 playerChoice.className = "playerchoice";
