@@ -22,24 +22,28 @@
 <div class="game-field">    
     <div class="rps">
         <h3>Shoot:</h3>
-        <button class="rock"><img src="images/rock.png" alt="rock-icon" width="150" height="auto"></button>
-        <button class="paper"><img src="images/paper.png" alt="paper-icon" width="150" height="auto"></button>
-        <button class="scissors"><img src="images/scissors.png" alt="scissors-icon" width="150" height="auto"></button>
+        <button id="rock"><img src="images/rock.png" alt="rock-icon" width="150" height="auto"></button>
+        <button id="paper"><img src="images/paper.png" alt="paper-icon" width="150" height="auto"></button>
+        <button id="scissors"><img src="images/scissors.png" alt="scissors-icon" width="150" height="auto"></button>
     </div>
     <div class="play">
-        <div class="player">
-            <p>Player's:</p>
+        <div id="player">
+            
         </div>
-        <div class ="comp">
-            <p>Computer's:</p> 
-        </div>  
+        <div id="comp">
+            
+        </div>
+    <div id="resultCont"></div> 
+        <div id="results"></div>
+
+    <div id="newGame"></div>
     </div>
 </div>
 
 <div class="scores">
-    <p>Player's Score:</p>
-    <p>Computer's Score:</p>
-</div>
+    <div id="roundnumber"></div>
+   <div id ="playerscore"></div>
+   <div id="compscore"></div>
 
 <script src="script.js"></script>
 </body>
