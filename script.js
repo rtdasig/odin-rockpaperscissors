@@ -2,7 +2,6 @@
 let playerScore = 0;
 let compScore = 0;
 let round = 0;
-let roundWinner = '';
 
 // Defining containers for round number and choices //
 const roundNum = document.getElementById("roundnum");
