@@ -4,15 +4,8 @@ let compScore = 0;
 let round = 0;
 let roundWinner = '';
 
-
-const playerScoreCont = document.getElementById("playerscore");
-const compScoreCont = document.getElementById("compscore");
-const roundNum = document.getElementById("roundnumber");
-
-const resultCont = document.getElementById("resultCont");
-const results = document.createElement('div');
-results.className = "results";
-resultCont.appendChild(results);
+// Defining containers for round number and choices //
+const roundNum = document.getElementById("roundnum");
 
 const playerChoiceCont = document.getElementById('player');
 const playerChoice = document.createElement('div');
@@ -24,9 +17,20 @@ const compChoice = document.createElement('div');
 compChoice.className = "compchoice";
 compChoiceCont.appendChild(compChoice);
 
-const newGame = document.getElementById('newGame');
+// Defining container for result message //
+const resultCont = document.getElementById("resultcont");
+const results = document.createElement('div');
+results.className = "results";
+resultCont.appendChild(results);
 
+// Defining container for scores //
+const playerScoreCont = document.getElementById("playerscore");
+const compScoreCont = document.getElementById("compscore");
 
+// Defining container for new game button //
+const newGame = document.getElementById('newgame');
+
+// function loop to get random computer choice //
 function getComputerChoice() {
     let choices = Math.floor(Math.random () * 3);
     switch (choices) {
@@ -39,6 +43,7 @@ function getComputerChoice() {
     }
 }
 
+// function for each round of the game //
 function playRound(playerSelection, computerSelection) {
     let result;
     if (playerSelection === computerSelection) {
@@ -50,56 +55,63 @@ function playRound(playerSelection, computerSelection) {
         (playerSelection === 'scissors' && computerSelection === 'rock')) {
         compScore += 1;
         round += 1;
-        roundWinner = 'Computer'
         result = "You lose! " + (playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1)) + " is beaten by " + computerSelection + ".";
     } else {
         playerScore += 1;
         round += 1;
-        roundWinner = 'Player'
         result = "You win! " + (playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1)) + " beats " + computerSelection + ".";
     }
-    playerChoice.textContent = "Player Choice: " + playerSelection;
-    compChoice.textContent = "Computer Choice: " + computerSelection;
-    results.textContent = result;  
+    roundNum.textContent = "ROUND: " + round;
+    playerChoice.textContent = playerSelection;
+    compChoice.textContent = computerSelection;
+    results.textContent = result;
+    results.style.border = '2px solid white';   // borders appear together with the result prompt //
+    results.style.padding = '20px';  
 
-    roundNum.textContent = "Round: " + round;
-    playerScoreCont.textContent = "Player Score: " + playerScore;
-    compScoreCont.textContent = "Computer Score: " + compScore;
+    playerScoreCont.textContent = playerScore;
+    compScoreCont.textContent = compScore;
     
+    // when either the player or the computer reaches 5 points //
     if (playerScore === 5 || compScore === 5) {
         const winner = () => {
         if (playerScore === 5) {
-            return "You win this game!";
+            return "You win this game! :)";
         }
         if (compScore === 5) {
-            return "You lost this game :("
+            return "You lose this game :("
         }}
 
         results.textContent = `${winner()}`;
 
+        if (playerScore === 5) {
+            results.style.color = 'yellow';
+        } else {
+            results.style.color = 'red';
+        } // winner or loser prompt will appear in different font colors //
+
         const newGameBtn = document.createElement("button");
-        newGameBtn.className = "newgame";
+        newGameBtn.className = "newgamebtn";
         newGameBtn.textContent = "Start a New Game";
         newGameBtn.addEventListener('click', () => {
-            location.reload();
+            location.reload();  // refreshes the game field //
         }) 
-        newGame.appendChild(newGameBtn);
+        newGame.appendChild(newGameBtn);    // the newgame button will appear //
         
     }
 }
 
+// function for when player clicks the button //
 function playGame(playerSelection) {
     if (playerScore < 5 && compScore < 5) {
         const computerSelection = getComputerChoice();
-        return playRound(playerSelection, computerSelection);
+        return playRound(playerSelection, computerSelection);   // game stops when one of the players reach 5 points //
     }
     if (playerScore === 5 || compScore === 5) {
         return;
     }    
 }
-    
 
-
+// adding function to the buttons //
 const rockBtn = document.getElementById('rock');
 rockBtn.addEventListener('click', () => {
     playGame('rock');
