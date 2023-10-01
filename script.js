@@ -104,26 +104,17 @@ function playRound(playerSelection, computerSelection) {
 function playGame(playerSelection) {
     if (playerScore < 5 && compScore < 5) {
         const computerSelection = getComputerChoice();
-        return playRound(playerSelection, computerSelection);   // game stops when one of the players reach 5 points //
+        return playRound(playerSelection, computerSelection);   
     }
     if (playerScore === 5 || compScore === 5) {
-        return;
+        return; // game stops when one of the players reaches 5 points //
     }    
 }
 
 // adding function to the buttons //
-const rockBtn = document.getElementById('rock');
-rockBtn.addEventListener('click', () => {
-    playGame('rock');
+const buttons = document.querySelectorAll('button');
+buttons.forEach((button) => {
+    button.addEventListener('click', () => {
+        playGame(button.id);
+    });
 });
-
-const paperBtn = document.getElementById('paper');
-paperBtn.addEventListener('click', () => {
-    playGame('paper');
-});
-
-const scissorsBtn = document.getElementById('scissors');
-scissorsBtn.addEventListener('click', () => {
-    playGame('scissors');
-});
-
