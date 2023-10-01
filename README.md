@@ -1,3 +1,5 @@
+# odin-rock-paper-scissors
+
 Made a simple UI for this project :)
 
 This time I focused more on applying JavaScript and seeing how DOM works.
