@@ -10,8 +10,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Monofett&family=Roboto+Mono&display=swap" rel="stylesheet">
 
     <title>Rock, Paper, Scissors</title>
-    <link rel="stylesheet" href="style.css">
 
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -19,31 +19,60 @@
 <h1>ROCK, PAPER, SCISSORS</h1>
 <h2>Race to 5</h2>
 <br/>
-<div class="game-field">    
+<div class="game">    
     <div class="rps">
-        <h3>Shoot:</h3>
-        <button id="rock"><img src="images/rock.png" alt="rock-icon" width="150" height="auto"></button>
-        <button id="paper"><img src="images/paper.png" alt="paper-icon" width="150" height="auto"></button>
-        <button id="scissors"><img src="images/scissors.png" alt="scissors-icon" width="150" height="auto"></button>
+        <h3>WEAPONS</h3>
+        <div class="weapons">
+            <button id="rock"><img src="images/rock.png" alt="rock-icon" width="150" height="auto"></button>
+            <button id="paper"><img src="images/paper.png" alt="paper-icon" width="150" height="auto"></button>
+            <button id="scissors"><img src="images/scissors.png" alt="scissors-icon" width="150" height="auto"></button>
+        </div>
     </div>
-    <div class="play">
-        <div id="player">
-            
-        </div>
-        <div id="comp">
-            
-        </div>
-    <div id="resultCont"></div> 
 
-    <div id="newGame"></div>
-    </div>
+    <div class="play">
+
+        <div class="round">
+            <h3>GAME FIELD</h3>
+
+            <div id="roundnum">ROUND:</div>
+
+            <div class="choices">
+                <div id="playerchoice">
+                    <p>Player Choice:</p>                    
+                    <div id="player"></div>
+                </div>
+                <div id="compchoice">
+                    <p>Computer Choice:</p>
+                    <div id="comp"></div>    
+                </div>
+            </div>
+
+            <div id="resultcont"></div>
+
+            <div id="newgame"></div>
+        </div>
+
+        <div class="scorescont">
+
+            <p>SCORES</p>
+
+            <div class="scores">
+                <div class="pscore">
+                    <p>Player Score:</p>
+                    <div id ="playerscore"></div>
+                </div>
+
+                <div class="cscore">
+                    <p>Computer Score:</p>
+                    <div id="compscore"></div>
+                </div>
+            </div>
+        </div>     
+    </div>  
 </div>
 
-<div class="scores">
-    <div id="roundnumber"></div>
-   <div id ="playerscore"></div>
-   <div id="compscore"></div>
-
 <script src="script.js"></script>
+
 </body>
+
 </html>
